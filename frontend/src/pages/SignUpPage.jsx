@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import PasswordStrengthMeter from "../components/PasswordStrengthMeter";
 import { useAuthStore } from "../store/authStore";
+import FloatingShape from "../components/FloatingShape";
 
 const SignUpPage = () => {
 	const [name, setName] = useState("");
@@ -25,6 +26,13 @@ const SignUpPage = () => {
 		}
 	};
 	return (
+		<div
+			className='min-h-screen bg-gradient-to-br
+    from-gray-900 via-green-900 to-emerald-900 flex items-center justify-center relative overflow-hidden'
+		>
+			<FloatingShape color='bg-green-500' size='w-64 h-64' top='-5%' left='10%' delay={0} />
+						<FloatingShape color='bg-emerald-500' size='w-48 h-48' top='70%' left='80%' delay={5} />
+						<FloatingShape color='bg-lime-500' size='w-32 h-32' top='40%' left='-10%' delay={2} />
 		<motion.div
 			initial={{ opacity: 0, y: 20 }}
 			animate={{ opacity: 1, y: 0 }}
@@ -85,6 +93,7 @@ const SignUpPage = () => {
 				</p>
 			</div>
 		</motion.div>
+		</div>
 	);
 };
 export default SignUpPage;
