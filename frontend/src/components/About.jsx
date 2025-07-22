@@ -1,13 +1,20 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Users, MapPin, HeartHandshake } from "lucide-react";
 import FloatingShape from "../components/FloatingShape";
+import SplineAnimation from "../components/SplineAnimation";
 
-const AboutSection = () => {
+const About = () => {
   return (
     <section 
       id="about" 
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 flex items-center justify-center relative overflow-hidden py-20"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden py-20"
     >
+      {/* Spline full background */}
+      <SplineAnimation />
+
+      {/* Optional dark gradient overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/20 to-black/70 z-0"></div>
+
       {/* Floating background shapes */}
       <FloatingShape color="bg-green-500" size="w-64 h-64" top="10%" left="5%" delay={0} />
       <FloatingShape color="bg-emerald-500" size="w-48 h-48" top="60%" left="75%" delay={0.5} />
@@ -15,26 +22,15 @@ const AboutSection = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Left Column - Image */}
+          {/* Left Column - (removed spline from here) */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="lg:w-1/2 relative"
+            className="lg:w-1/2 w-full"
           >
-            <div className="relative rounded-2xl overflow-hidden border-4 border-emerald-400 shadow-2xl shadow-emerald-500/20">
-              <img 
-                src="/images/about-hero.jpg" 
-                alt="Sakhi Team"
-                className="w-full h-auto object-cover"
-                onError={(e) => {
-                  e.target.src = "/images/placeholder-about.jpg";
-                }}
-              />
-              {/* Glow effect */}
-              <div className="absolute -inset-8 bg-emerald-500/20 blur-3xl rounded-full z-0"></div>
-            </div>
+           
           </motion.div>
 
           {/* Right Column - Content */}
@@ -48,15 +44,15 @@ const AboutSection = () => {
             <p className="text-emerald-400 font-medium mb-4 tracking-wider">
               ABOUT SAKHI
             </p>
-            
+
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
               Empowering <span className="text-emerald-300">Women</span> Through <span className="text-emerald-300">Technology</span>
             </h2>
-            
+
             <p className="text-lg text-gray-300 mb-8">
               Sakhi is a revolutionary safety platform created by women, for women. Our mission is to leverage technology to create safer communities and empower women with tools for personal security and confidence.
             </p>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
               {[
                 {
@@ -138,4 +134,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default About;

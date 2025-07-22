@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import FloatingShape from "../components/FloatingShape";
+import Robot from "../components/Robot"
 
 const HeroSection = () => {
   return (
@@ -11,14 +12,21 @@ const HeroSection = () => {
       <FloatingShape color="bg-green-500" size="w-64 h-64" top="10%" left="5%" delay={0} />
       <FloatingShape color="bg-emerald-500" size="w-48 h-48" top="60%" left="75%" delay={0.5} />
       <FloatingShape color="bg-lime-500" size="w-32 h-32" top="30%" left="85%" delay={0.8} />
+    
+      
 
       <div className="container mx-auto px-6 py-24 flex flex-col items-center justify-center text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
-        >
+
+      <motion.div
+       whileTap={{ scale: 0.97, rotate: -1 }}
+  whileHover={{ scale: 1.01 }}
+  transition={{ type: "spring", stiffness: 120, damping: 10, duration: 0.6 }}
+  className="animate-float backdrop-blur-md bg-white/5 border border-emerald-500/20 rounded-3xl shadow-xl p-10 md:p-16 max-w-4xl mx-auto hover:shadow-emerald-500/30 transition-all"
+>
+
+ 
+
+
           {/* Tagline */}
           <p className="text-emerald-400 font-medium mb-4 flex items-center justify-center gap-2">
             <span className="h-px w-8 bg-emerald-400"></span>
@@ -56,45 +64,44 @@ const HeroSection = () => {
             </motion.button>
           </div>
         </motion.div>
+        
 
-        {/* App screenshot or illustration */}
+       
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
           className="mt-16 md:mt-24 relative"
         >
-          <div className="relative z-10 rounded-2xl overflow-hidden border-4 border-emerald-400 shadow-2xl shadow-emerald-500/20">
-            <img 
-              src="/images/app-preview.png" // Replace with your actual image
-              alt="Sakhi App Preview"
-              className="w-full max-w-2xl"
-            />
-          </div>
+         
           {/* Glow effect */}
           <div className="absolute -inset-8 bg-emerald-500/20 blur-3xl rounded-full z-0"></div>
         </motion.div>
       </div>
 
-      {/* Stats bar */}
-      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-r from-emerald-800/80 to-green-900/80 backdrop-blur-sm py-6">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-3 divide-x divide-emerald-700/50">
-            <div className="text-center px-4">
-              <p className="text-3xl font-bold text-white">10K+</p>
-              <p className="text-emerald-300">Active Users</p>
-            </div>
-            <div className="text-center px-4">
-              <p className="text-3xl font-bold text-white">24/7</p>
-              <p className="text-emerald-300">Support Available</p>
-            </div>
-            <div className="text-center px-4">
-              <p className="text-3xl font-bold text-white">100+</p>
-              <p className="text-emerald-300">Safety Partners</p>
-            </div>
-          </div>
-        </div>
+{/* Empowerment Pulse Bar */}
+<div className="absolute bottom-0 left-0 right-0 overflow-hidden z-10">
+  <div className="relative h-20 bg-gradient-to-r from-green-800/60 to-emerald-900/70 backdrop-blur-md border-t border-emerald-400/10 shadow-inner flex items-center justify-center">
+
+    {/* Glowing Pulse Line */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <div className="w-full h-1 bg-gradient-to-r from-emerald-400 via-green-300 to-lime-400 animate-pulse rounded-full blur-sm opacity-60"></div>
+    </div>
+
+    {/* Animated Words */}
+    <div className="relative z-20 text-white text-center whitespace-nowrap overflow-hidden">
+      <div className="animate-marquee text-lg font-semibold tracking-wider text-emerald-300">
+        <span className="mx-8">Support</span>
+        <span className="mx-8">Safety</span>
+        <span className="mx-8">Empowerment</span>
+        <span className="mx-8">Strength</span>
+        <span className="mx-8">Unity</span>
       </div>
+    </div>
+  </div>
+</div>
+
+        <Robot/>
     </section>
     
   );

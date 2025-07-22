@@ -16,6 +16,7 @@ import { Toaster } from "react-hot-toast";
 import { useAuthStore } from "./store/authStore";
 import { useEffect } from "react";
 import Navbar from "./components/Navbar";
+import MainUspPage from "./pages/MainUspPage"
 
 // protect routes that require authentication
 const ProtectedRoute = ({ children }) => {
@@ -110,8 +111,10 @@ function App() {
 				{/* catch all routes */}
 				<Route path="/profile" element={<ProfilePage />} />
 				<Route path='*' element={<Navigate to='/' replace />} />
+				<Route path="/MainUspPage" element={<MainUspPage />} />
 
 			</Routes>
+			
 			<Toaster />
 		</div>
 	);
