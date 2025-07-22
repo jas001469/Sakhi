@@ -105,7 +105,7 @@ const StatsTestimonialsSection = () => {
           >
             <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
               <Play className="text-emerald-400" />
-              <span>User Stories</span>
+              <span>Community</span>
             </h3>
 
             <div className="space-y-6">
