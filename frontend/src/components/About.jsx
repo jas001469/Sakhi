@@ -1,40 +1,37 @@
 import { motion } from "framer-motion";
 import { ShieldCheck, Users, MapPin, HeartHandshake } from "lucide-react";
 import FloatingShape from "../components/FloatingShape";
+//import SplineAnimation from "../components/SplineAnimation";
 
-const AboutSection = () => {
+const About = () => {
   return (
     <section 
       id="about" 
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 flex items-center justify-center relative overflow-hidden py-20"
+      className="min-h-screen bg-gradient-to-br
+    from-gray-900 via-green-900 to-emerald-900 flex items-center justify-center relative overflow-hidden"
     >
+      {/* Spline full background */}
+      {/* <SplineAnimation /> */}
+
+      {/* Optional dark gradient overlay for readability */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/20 to-black/70 z-0"></div>
+
       {/* Floating background shapes */}
-      <FloatingShape color="bg-green-500" size="w-64 h-64" top="10%" left="5%" delay={0} />
+      {/* <FloatingShape color="bg-green-500" size="w-64 h-64" top="10%" left="5%" delay={0} />
       <FloatingShape color="bg-emerald-500" size="w-48 h-48" top="60%" left="75%" delay={0.5} />
-      <FloatingShape color="bg-lime-500" size="w-32 h-32" top="30%" left="85%" delay={0.8} />
+      <FloatingShape color="bg-lime-500" size="w-32 h-32" top="30%" left="85%" delay={0.8} /> */}
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Left Column - Image */}
+          {/* Left Column - (removed spline from here) */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="lg:w-1/2 relative"
+            className="lg:w-1/2 w-full"
           >
-            <div className="relative rounded-2xl overflow-hidden border-4 border-emerald-400 shadow-2xl shadow-emerald-500/20">
-              <img 
-                src="/images/about-hero.jpg" 
-                alt="Sakhi Team"
-                className="w-full h-auto object-cover"
-                onError={(e) => {
-                  e.target.src = "/images/placeholder-about.jpg";
-                }}
-              />
-              {/* Glow effect */}
-              <div className="absolute -inset-8 bg-emerald-500/20 blur-3xl rounded-full z-0"></div>
-            </div>
+           
           </motion.div>
 
           {/* Right Column - Content */}
@@ -45,19 +42,19 @@ const AboutSection = () => {
             viewport={{ once: true }}
             className="lg:w-1/2 text-center lg:text-left"
           >
-            <p className="text-emerald-400 font-medium mb-4 tracking-wider">
+            <p className="text-emerald-400 font-bold text-3xl mb-1 tracking-wider">
               ABOUT SAKHI
             </p>
-            
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
+
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-5 leading-tight">
               Empowering <span className="text-emerald-300">Women</span> Through <span className="text-emerald-300">Technology</span>
             </h2>
-            
-            <p className="text-lg text-gray-300 mb-8">
+
+            <p className="text-lg text-gray-300 mb-5">
               Sakhi is a revolutionary safety platform created by women, for women. Our mission is to leverage technology to create safer communities and empower women with tools for personal security and confidence.
             </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-5">
               {[
                 {
                   icon: <ShieldCheck className="w-6 h-6 text-emerald-400" />,
@@ -117,7 +114,7 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-24 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700"
+          className="mt-6 bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700"
         >
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
@@ -138,4 +135,4 @@ const AboutSection = () => {
   );
 };
 
-export default AboutSection;
+export default About;

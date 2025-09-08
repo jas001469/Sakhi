@@ -1,177 +1,91 @@
-import { motion } from 'framer-motion';
-import { Play, Shield, Zap, Activity, CheckCircle } from 'lucide-react';
-import CountUp from 'react-countup';
-import FloatingShape from '../components/FloatingShape';
+import React from "react";
+import { Coins, MonitorSmartphone, BadgePercent } from "lucide-react";
+import FloatingShape from "../components/FloatingShape";
+import AdMarquee from "../components/AdMarquee";
 
-const StatsTestimonialsSection = () => {
+const benefits = [
+  {
+    icon: <Coins className="w-6 h-6 text-yellow-500" />,
+    title: "Earn SuperCoins",
+    desc: "Verify headlines and get rewarded with SuperCoins to use across the platform.",
+  },
+  {
+    icon: <MonitorSmartphone className="w-6 h-6 text-blue-500" />,
+    title: "Ad-Free Experience",
+    desc: "Use your coins to unlock an ad-free, focused browsing experience.",
+  },
+  {
+    icon: <BadgePercent className="w-6 h-6 text-pink-500" />,
+    title: "Exclusive Perks",
+    desc: "Redeem exclusive rewards like vouchers, badges, and early access tools.",
+  },
+];
+
+export default function GroundTruthBenefits() {
   return (
-   <section 
-      id="proof" 
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-green-900 to-emerald-900 flex items-center justify-center relative overflow-hidden py-20"
-    >
+    <section className="relative py-24 px-6 md:px-24 bg-gradient-to-br from-emerald-700 via-emerald-900 to-black overflow-hidden text-white">
+
       {/* Floating background shapes */}
-      <FloatingShape color="bg-green-500" size="w-64 h-64" top="10%" left="5%" delay={0} />
+      {/* <FloatingShape color="bg-green-500" size="w-64 h-64" top="10%" left="5%" delay={0} />
       <FloatingShape color="bg-emerald-500" size="w-48 h-48" top="60%" left="75%" delay={0.5} />
-      <FloatingShape color="bg-lime-500" size="w-32 h-32" top="30%" left="85%" delay={0.8} />
-      <div className="container mx-auto px-6">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            <span className="text-emerald-400">Proven</span> Protection
-          </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            Trusted by thousands and delivering measurable results against financial scams
-          </p>
-        </motion.div>
+      <FloatingShape color="bg-lime-500" size="w-32 h-32" top="30%" left="85%" delay={0.8} /> */}
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Left Column - Statistics */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="space-y-8"
-          >
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-              <Activity className="text-emerald-400" />
-              <span>Our Impact</span>
-            </h3>
+      {/* ✨ Glow Background */}
+      <div className="absolute top-0 left-1/2 w-[800px] h-[800px] bg-green-400 opacity-20 rounded-full blur-3xl transform -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
-            <div className="grid grid-cols-2 gap-6">
-              {[
-                {
-                  icon: <Shield className="w-6 h-6 text-emerald-400" />,
-                  value: 92,
-                  suffix: "%",
-                  label: "Scam Detection Rate"
-                },
-                {
-                  icon: <Zap className="w-6 h-6 text-emerald-400" />,
-                  value: 1.7,
-                  suffix: "Lakh",
-                  label: "Fraud Cases Addressed"
-                },
-                {
-                  icon: <CheckCircle className="w-6 h-6 text-emerald-400" />,
-                  value: 98,
-                  suffix: "%",
-                  label: "User Satisfaction"
-                },
-                {
-                  icon: <Activity className="w-6 h-6 text-emerald-400" />,
-                  value: 24,
-                  suffix: "/7",
-                  label: "Monitoring"
-                }
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-emerald-500 transition-all"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="bg-emerald-900/30 p-2 rounded-lg">
-                      {stat.icon}
-                    </div>
-                    <div>
-                      <p className="text-3xl font-bold text-emerald-400 mb-1">
-                        <CountUp end={stat.value} duration={2} decimals={stat.value % 1 ? 1 : 0} />{stat.suffix}
-                      </p>
-                      <p className="text-gray-400 text-sm">{stat.label}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+      {/* Main Content */}
+      <div className="relative z-10 max-w-6xl mx-auto text-center space-y-10">
+
+      
+        {/* 🌟 Empowerment Pulse Bar */}
+        <div className="overflow-hidden z-10">
+          <div className="relative h-20 bg-gradient-to-r from-green-800/60 to-emerald-900/70 backdrop-blur-md border-t border-emerald-400/10 shadow-inner flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-full h-1 bg-gradient-to-r from-emerald-400 via-green-300 to-lime-400 animate-pulse rounded-full blur-sm opacity-60"></div>
             </div>
-
-            <div className="bg-gray-800/50 p-6 rounded-xl border border-emerald-500/20 mt-8">
-              <h4 className="font-bold text-white mb-3">India Fraud Map</h4>
-              <div className="h-48 bg-emerald-900/20 rounded-lg border border-dashed border-emerald-500/30 flex items-center justify-center">
-                <p className="text-gray-400">State-wise Fraud Distribution</p>
+            <div className="relative z-20 text-white text-center whitespace-nowrap overflow-hidden">
+              <div className="animate-marquee text-lg font-semibold tracking-wider text-emerald-300">
+                <span className="mx-8">Support</span>
+                <span className="mx-8">Safety</span>
+                <span className="mx-8">Empowerment</span>
+                <span className="mx-8">Strength</span>
+                <span className="mx-8">Unity</span>
               </div>
             </div>
-          </motion.div>
+          </div>
+        </div>
 
-          {/* Right Column - Testimonials */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="space-y-8"
-          >
-            <h3 className="text-2xl font-bold text-white mb-6 flex items-center gap-3">
-              <Play className="text-emerald-400" />
-              <span>Community</span>
-            </h3>
+        {/* Heading */}
+        <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+          Your Truth, Your Rewards
+        </h2>
+        <p className="text-gray-400 max-w-xl mx-auto text-lg">
+          Empower yourself and your community while unlocking SuperCoins and perks.
+        </p>
 
-            <div className="space-y-6">
-              {[
-                {
-                  name: "Priya Sharma",
-                  role: "Small Business Owner, Delhi",
-                  quote: "Sakhi detected a fake UPI payment request that looked completely genuine. The AI spotted patterns I would have never noticed.",
-                  saved: "₹45,000"
-                },
-                {
-                  name: "Rahul Mehta",
-                  role: "College Student, Bangalore",
-                  quote: "The QR scanner warned me about a fraudulent payment page before I entered any details. Absolute lifesaver!",
-                  saved: "₹12,000"
-                },
-                {
-                  name: "Ananya Patel",
-                  role: "Freelancer, Mumbai",
-                  quote: "Got an SMS about winning a lottery. Sakhi's AI immediately flagged it as scam and showed me similar reported cases.",
-                  saved: "₹75,000"
-                }
-              ].map((testimonial, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.15 }}
-                  className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-emerald-500 transition-all"
-                >
-                  <div className="flex gap-4">
-                    <div className="bg-emerald-900/30 w-12 h-12 rounded-full flex items-center justify-center shrink-0">
-                      <Play className="text-emerald-400" />
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-white">{testimonial.name}</h4>
-                      <p className="text-emerald-400 text-sm mb-3">{testimonial.role}</p>
-                      <p className="text-gray-300 mb-4">"{testimonial.quote}"</p>
-                      <div className="bg-emerald-900/20 px-3 py-1 rounded-full text-sm inline-block">
-                        Protected {testimonial.saved}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
+        {/* Benefit Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {benefits.map((item, index) => (
+            <div
+              key={index}
+              className="backdrop-blur-md bg-white/5 border border-white/10 rounded-3xl p-6 text-left shadow-xl hover:shadow-purple-500/20 transition-all"
+            >
+              <div className="mb-4 p-3 bg-zinc-800 rounded-full inline-flex">
+                {item.icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
             </div>
+          ))}
+        </div>
 
-            <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 mt-8">
-              <h4 className="font-bold text-white mb-3">Featured Case Study</h4>
-              <details className="group">
-                <summary className="flex justify-between items-center cursor-pointer pb-3">
-                  <span className="text-emerald-400 font-medium">How we prevented ₹2.3Cr in crypto scams</span>
-                  <svg className="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </summary>
-                <p className="text-gray-400 pt-3 border-t border-gray-700">
-                  Our AI detected a network of 42 fake cryptocurrency wallets being promoted across social media. Through real-time scanning and user reports, we prevented over 150 potential victims from sending funds to these fraudulent addresses.
-                </p>
-              </details>
-            </div>
-          </motion.div>
+        {/* CTA Button */}
+        <div className="pt-10">
+          <button className="px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-pink-400 text-black font-semibold hover:scale-105 transition-all">
+            Start Earning SuperCoins
+          </button>
         </div>
       </div>
     </section>
-  );
-};
-
-export default StatsTestimonialsSection;
+  );
+}
